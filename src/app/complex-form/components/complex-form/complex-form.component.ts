@@ -136,10 +136,11 @@ export class ComplexFormComponent implements OnInit {
         tap(saved => {
             this.loading = false;
             if (saved) {
-            this.resetForm();
-            } else {
-            console.error('Echec de l\'enregistrement');
-            }
+              this.mainForm.reset();
+              this.contactPreferenceCtrl.patchValue('email');
+              } else {
+              console.error('Echec de l\'enregistrement');
+          }
         })
     ).subscribe();
   }
